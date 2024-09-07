@@ -1,0 +1,339 @@
+/* Определение цветовой палитры и переменных */
+:root {
+  --primary-color: #003366; /* Темно-синий */
+  --secondary-color: #8b4513; /* Коричневый */
+  --text-color: #333; /* Основной цвет текста */
+  --bg-light-color: #f4f1f1; /* Светлый фон */
+  --bg-dark-color: #003366; /* Темный фон */
+  --accent-color: #00509e; /* Акцентный цвет */
+  --border-color: #d2b48c; /* Цвет границы (коричневый) */
+  --main-padding: 40px; /* Основной отступ */
+  --main-font-size: 1rem; /* Основной размер шрифта */
+}
+
+/* Основные стили */
+body {
+  background-color: var(--bg-light-color);
+  padding: var(--main-padding);
+  font-family: 'Montserrat', sans-serif;
+  color: var(--text-color);
+  font-size: var(--main-font-size);
+  line-height: 1.6;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.wrapper {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row-reverse;
+  width: 1200px;
+  margin: 0 auto;
+  padding: var(--main-padding);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+/* Основное содержимое */
+.main-content {
+  padding: 0 16px;
+  margin: 0;
+  background-color: #ffffff;
+}
+
+.my-info {
+  padding: var(--main-padding);
+  margin-bottom: 16px;
+  background-color: var(--bg-light-color);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+/* Sidebar */
+.sidebar {
+  background-color: var(--bg-dark-color);
+  padding: var(--main-padding);
+  width: 370px;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.sidebar-content {
+  padding: var(--main-padding);
+  box-sizing: border-box;
+}
+
+.my-photo {
+  width: 290px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border: 2px solid var(--border-color);
+}
+
+/* Контакты */
+.contacts-title {
+  font-weight: 700;
+  font-size: 16px;
+  color: #ffffff;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.contacts-item {
+  font-size: 14px;
+  color: #ffffff;
+  margin: 0;
+}
+
+.contacts-address {
+  margin: 0;
+}
+
+.contacts-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.contacts-link:hover,
+.contacts-link:focus {
+  color: var(--accent-color);
+}
+
+.contacts-container {
+  color: #ffffff;
+}
+
+/* Навыки */
+.skills-title,
+.soft-skills-title,
+.speak-title,
+.more-title,
+.interests-title {
+  font-weight: 700;
+  font-size: 16px;
+  color: #ffffff;
+  margin-bottom: 20px;
+  margin-top: 40px;
+  text-transform: uppercase;
+}
+
+.skills-list-item,
+.soft-skills-list-item,
+.speak-list-item,
+.more-list-item,
+.interests-list-item {
+  font-weight: 400;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+/* Основное содержание */
+.my-profession {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--text-color);
+  margin-bottom: 8px;
+}
+
+.my-name {
+  font-weight: 700;
+  font-size: 45px;
+  color: var(--text-color);
+  margin-bottom: 12px;
+}
+
+.my-date {
+  font-weight: 400;
+  font-size: 12px;
+  color: #a8a8a8;
+  margin-bottom: 8px;
+}
+
+.my-descr {
+  font-weight: 400;
+  font-size: 14px;
+  color: #595959;
+}
+
+/* Проекты */
+.my-projects-title {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--secondary-color);
+  margin: 20px 0;
+}
+
+.my-projects-item {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+.my-projects-item-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.my-projects-item-link:hover,
+.my-projects-item-link:focus {
+  color: var(--accent-color);
+}
+
+.my-projects-item-tech {
+  font-weight: 400;
+  font-size: 14px;
+  color: #595959;
+}
+
+/* Опыт работы */
+.work {
+  padding: 20px var(--main-padding);
+  margin-bottom: 16px;
+  background-color: var(--bg-light-color);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.work-experience-title {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--secondary-color);
+  margin-bottom: 20px;
+}
+
+.work-experience-company {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--text-color);
+}
+
+.work-experience-container {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.company-name {
+  color: var(--primary-color);
+}
+
+.work-experience-period {
+  font-weight: 400;
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.work-experience-duties-list {
+  padding-left: 20px;
+  padding-bottom: 10px;
+}
+
+.work-experience-duties-item {
+  font-weight: 400;
+  font-size: 14px;
+  color: #595959;
+}
+
+/* Образование */
+.education {
+  padding: 20px var(--main-padding);
+  margin: 0;
+  background-color: var(--bg-light-color);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.education-title {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--secondary-color);
+  margin-bottom: 20px;
+}
+
+.education-container {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.education-container h4 {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--text-color);
+}
+
+.education-period {
+  font-weight: 400;
+  font-size: 14px;
+  color: #888;
+}
+
+/* Мобильные стили */
+@media screen and (max-width: 960px) {
+  body {
+    padding: 20px;
+  }
+  .main-content {
+    padding: 40px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .sidebar {
+    width: 250px;
+    padding: 10px;
+  }
+
+  .my-photo {
+    width: 230px;
+  }
+
+  .sidebar-content {
+    padding: 10px;
+  }
+}
+@media screen and (max-width: 600px) {
+  body {
+    padding: 0;
+  }
+  .sidebar {
+    width: 200px;
+    padding: 10px;
+  }
+
+  .my-photo {
+    width: 180px;
+  }
+
+  .main-content {
+    padding: 20px;
+  }
+
+  .my-name {
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: 40px;
+  }
+
+  .my-photo {
+    width: 100%;
+  }
+}
