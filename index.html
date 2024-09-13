@@ -1,17 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Resume Risina Liliia</title>
-
+    <link
+      rel="stylesheet"
+      href="node_modules/modern-normalize/modern-normalize.css"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@100;400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/styls.css" />
+    <link rel="stylesheet" href="./css/styls.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Подключаем внешний JavaScript файл -->
+    <script src="./js/languageSwitcher.js" defer></script>
+    <!-- Подключаем внешние библиотеки -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+    <script src="./js/exportToPDF.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
   </head>
 
   <body>
@@ -21,31 +39,70 @@
       <div class="main-content">
         <!-- My info -->
         <div class="my-info">
-          <h2 class="my-profession">Full Stack Developer</h2>
-          <h1 class="my-name">Risina Liliia</h1>
-          <p class="my-date">
+          <!-- Language Selector -->
+          <div class="nav">
+            <div class="language">
+              <a
+                href="#"
+                class="language-link"
+                data-lang="en"
+                onclick="changeLanguage('en')"
+                >EN</a
+              >
+              |
+              <a
+                href="#"
+                class="language-link"
+                data-lang="de"
+                onclick="changeLanguage('de')"
+                >DE</a
+              >
+              |
+              <a
+                href="#"
+                class="language-link"
+                data-lang="ua"
+                onclick="changeLanguage('ua')"
+                >UA</a
+              >
+            </div>
+            <button class="export-resume" onclick="printPage()">
+              <i class="fas fa-print"></i>
+            </button>
+          </div>
+          <h1 class="my-profession" data-key="profession">
+            Full Stack Developer
+          </h1>
+          <h2 class="my-name" data-key="name">Risina Liliia</h2>
+          <p class="my-date" data-key="date">
             Geboren: 17.12.1985 in Melovoye (Ukraine) | Familienstand:
             Verheiratet, 1 Kind (geb. 2011)
           </p>
-          <p class="my-descr">
-            Ich bin ein aufstrebender Full-Stack-Entwickler und lerne derzeit
-            Technologien wie JavaScript, React und Node.js. Meine Leidenschaft
-            liegt in der Entwicklung benutzerfreundlicher und effizienter
-            Webanwendungen. Nun bin ich auf der Suche nach einem Praktikum in
-            interessanten Projekten, bei dem ich mein Wissen anwenden und meine
-            beruflichen Fähigkeiten weiterentwickeln kann. Ich bin offen für
-            neue Vorschläge und bereit zur Zusammenarbeit!
+          <p class="my-descr" data-key="description">
+            Als aufstrebender Full-Stack-Entwickler mit einem Fokus auf moderne
+            Technologien wie JavaScript, React und Node.js, bringe ich eine
+            starke Leidenschaft für die Entwicklung benutzerfreundlicher und
+            effizienter Webanwendungen mit. Aktuell bin ich auf der Suche nach
+            einem Praktikum, das mir die Möglichkeit bietet, mein Wissen in die
+            Praxis umzusetzen und meine beruflichen Fähigkeiten in einem
+            dynamischen Umfeld zu erweitern. Ich zeichne mich durch Offenheit
+            für neue Vorschläge und eine ausgeprägte Bereitschaft zur
+            Zusammenarbeit aus. Lassen Sie uns gemeinsam innovative Projekte
+            realisieren!
           </p>
 
           <!-- My projects -->
           <div class="my-projects-container">
-            <h3 class="my-projects-title">Projects</h3>
+            <h3 class="my-projects-title" data-key="projects-title">
+              Projects
+            </h3>
             <ol class="my-projects-list">
               <li class="my-projects-item">
                 <a
                   class="my-projects-item-link"
                   href="https://risinaliliia.github.io/goit-markup-hw-03/"
                   target="_blank"
+                  data-key="project-1-link"
                   >https://risinaliliia.github.io/goit-markup-hw-03/</a
                 >
                 <span class="my-projects-item-tech"> [ HTML5, CSS3 ] </span>
@@ -56,6 +113,7 @@
                   class="my-projects-item-link"
                   href="https://banderogusmarafon.netlify.app/"
                   target="_blank"
+                  data-key="project-2-link"
                   >https://banderogusmarafon.netlify.app/</a
                 >
                 <span class="my-projects-item-tech"> [ JavaScript ] </span>
@@ -66,6 +124,7 @@
                   class="my-projects-item-link"
                   href="https://kidslike.p.goit.global"
                   target="_blank"
+                  data-key="project-3-link"
                   >https://kidslike.p.goit.global</a
                 >
                 <span class="my-projects-item-tech">
@@ -78,33 +137,50 @@
 
         <!-- Work experience -->
         <div class="work">
-          <h3 class="work-experience-title">Berufserfarung</h3>
+          <h3 class="work-experience-title" data-key="work-experience-title">
+            Berufserfahrung
+          </h3>
 
           <!-- Recent -->
           <div class="work-experience-container">
-            <h4 class="work-experience-company">
+            <h4 class="work-experience-company" data-key="recent-experience">
               Übersiedlung nach Deutschland
             </h4>
-            <p class="work-experience-period">12/2023 | Deutschland</p>
+            <p class="work-experience-period" data-key="recent-period">
+              12/2023 | Deutschland
+            </p>
           </div>
 
           <!-- Company 1 -->
           <div class="work-experience-container">
-            <h4 class="work-experience-company">
+            <h4 class="work-experience-company" data-key="company-1">
               Logistik-Managerin
-              <span class="company-name">Unternehmen Shevchenko A.M.</span>
+              <span class="company-name" data-key="company-1-name"
+                >Unternehmen Shevchenko A.M.</span
+              >
             </h4>
-            <p class="work-experience-period">03/2014 – 02/2022 | Ukraine</p>
+            <p class="work-experience-period" data-key="company-1-period">
+              03/2014 – 02/2022 | Ukraine
+            </p>
             <ul class="work-experience-duties-list">
-              <li class="work-experience-duties-item">
+              <li
+                class="work-experience-duties-item"
+                data-key="company-1-duty-1"
+              >
                 Erstellung von Produktfreigabeplänen, Kontrolle der
                 rechtzeitigen Freigabe und Zertifizierung von Produkten.
               </li>
-              <li class="work-experience-duties-item">
+              <li
+                class="work-experience-duties-item"
+                data-key="company-1-duty-2"
+              >
                 Bestandsverwaltung im Unternehmen, Kostenschätzung, Inventar-
                 und Bestandskontrolle.
               </li>
-              <li class="work-experience-duties-item">
+              <li
+                class="work-experience-duties-item"
+                data-key="company-1-duty-3"
+              >
                 Planung und Überwachung von Produktlieferwegen in der Region.
               </li>
             </ul>
@@ -112,17 +188,27 @@
 
           <!-- Company 2 -->
           <div class="work-experience-container">
-            <h4 class="work-experience-company">
+            <h4 class="work-experience-company" data-key="company-2">
               Logistik-Managerin
-              <span class="company-name">Athena Group</span>
+              <span class="company-name" data-key="company-2-name"
+                >Athena Group</span
+              >
             </h4>
-            <p class="work-experience-period">06/2010 – 02/2014 | Ukraine</p>
+            <p class="work-experience-period" data-key="company-2-period">
+              06/2010 – 02/2014 | Ukraine
+            </p>
             <ul class="work-experience-duties-list">
-              <li class="work-experience-duties-item">
+              <li
+                class="work-experience-duties-item"
+                data-key="company-2-duty-1"
+              >
                 Bestandsverwaltung im Lager: Bestellung, Buchhaltung,
                 Qualitätskontrolle, Versand.
               </li>
-              <li class="work-experience-duties-item">
+              <li
+                class="work-experience-duties-item"
+                data-key="company-2-duty-2"
+              >
                 Entwicklung von Lieferrouten, Kontrolle der pünktlichen
                 Lieferung und Zusammenarbeit mit den Fahrern.
               </li>
@@ -131,20 +217,33 @@
 
           <!-- Company 3 -->
           <div class="work-experience-container">
-            <h4 class="work-experience-company">
+            <h4 class="work-experience-company" data-key="company-3">
               Logistik-Managerin
-              <span class="company-name">Eastern Trading Company</span>
+              <span class="company-name" data-key="company-3-name"
+                >Eastern Trading Company</span
+              >
             </h4>
-            <p class="work-experience-period">06/2008 – 06/2010 | Ukraine</p>
+            <p class="work-experience-period" data-key="company-3-period">
+              06/2008 – 06/2010 | Ukraine
+            </p>
             <ul class="work-experience-duties-list">
-              <li class="work-experience-duties-item">
+              <li
+                class="work-experience-duties-item"
+                data-key="company-3-duty-1"
+              >
                 Vorbereitung von Bestellungen für den Wareneinkauf.
               </li>
-              <li class="work-experience-duties-item">
+              <li
+                class="work-experience-duties-item"
+                data-key="company-3-duty-2"
+              >
                 Abrechnung der Produktbestände, Kontrolle des Inventars und der
                 Verfallsdaten.
               </li>
-              <li class="work-experience-duties-item">
+              <li
+                class="work-experience-duties-item"
+                data-key="company-3-duty-3"
+              >
                 Erstellen von Reiseplänen für Fahrer zur Auslieferung.
               </li>
             </ul>
@@ -152,17 +251,27 @@
 
           <!-- Company 4 -->
           <div class="work-experience-container">
-            <h4 class="work-experience-company">
+            <h4 class="work-experience-company" data-key="company-4">
               Managerin
-              <span class="company-name">Handelshaus „MAK-Dak“</span>
+              <span class="company-name" data-key="company-4-name"
+                >Handelshaus „MAK-Dak“</span
+              >
             </h4>
-            <p class="work-experience-period">02/2006 – 06/2008 | Ukraine</p>
+            <p class="work-experience-period" data-key="company-4-period">
+              02/2006 – 06/2008 | Ukraine
+            </p>
             <ul class="work-experience-duties-list">
-              <li class="work-experience-duties-item">
+              <li
+                class="work-experience-duties-item"
+                data-key="company-4-duty-1"
+              >
                 Annahme und Bearbeitung von Produktbestellungen von
                 Handelsvertretern.
               </li>
-              <li class="work-experience-duties-item">
+              <li
+                class="work-experience-duties-item"
+                data-key="company-4-duty-2"
+              >
                 Erstellung von Dokumenten für den Versand von Produkten.
               </li>
             </ul>
@@ -171,54 +280,69 @@
 
         <!-- Education -->
         <div class="education">
-          <h3 class="education-title">Ausbildung</h3>
+          <h3 class="education-title" data-key="education-title">Ausbildung</h3>
           <ul class="item-education">
             <li class="education-container">
-              <h4 class="work-experience-company">
+              <h4 class="work-experience-company" data-key="education-1">
                 GoIT global
-                <span class="company-name">Kurs zum Full Stack Developer</span>
+                <span class="company-name" data-key="education-1-course"
+                  >Kurs zum Full Stack Developer</span
+                >
               </h4>
-              <p class="education-period">08/2024 – heute | Deutschland</p>
+              <p class="education-period" data-key="education-1-period">
+                08/2024 – heute | Deutschland
+              </p>
             </li>
             <li class="education-container">
-              <h4 class="work-experience-company">
+              <h4 class="work-experience-company" data-key="education-2">
                 Deutsche Gesellschaft für Online-Innovationen GmbH<br />
-                <span class="company-name"
+                <span class="company-name" data-key="education-2-course"
                   >Jobcoaching und berufsbezogene Sprachförderung</span
                 >
               </h4>
-              <p class="education-period">07/2024 – heute | Deutschland</p>
+              <p class="education-period" data-key="education-2-period">
+                07/2024 – heute | Deutschland
+              </p>
             </li>
             <li class="education-container">
-              <h4 class="work-experience-company">
+              <h4 class="work-experience-company" data-key="education-3">
                 EVO Publishing School of Marketing<br />
-                <span class="company-name"
+                <span class="company-name" data-key="education-3-course"
                   >Kurs: Erstellung automatisierter Verkaufstrichter und
                   Marketingprojektmanagement</span
                 >
               </h4>
-              <p class="education-period">01/2021 – 03/2021 | Ukraine</p>
+              <p class="education-period" data-key="education-3-period">
+                01/2021 – 03/2021 | Ukraine
+              </p>
             </li>
             <li class="education-container">
-              <h4 class="work-experience-company">
+              <h4 class="work-experience-company" data-key="education-4">
                 Kiewer Nationale Universität für Kultur und Kunst<br />
-                <span class="company-name"
+                <span class="company-name" data-key="education-4-course"
                   >Studium: Management des Hotel- und Restaurantgewerbes</span
                 >
               </h4>
-              <p class="education-diplom">
+              <p class="education-diplom" data-key="education-4-diplom">
                 Abschluss: Hotel- und Restaurantmanagerin
               </p>
-              <p class="education-period">09/2010 – 06/2013 | Ukraine</p>
+              <p class="education-period" data-key="education-4-period">
+                09/2010 – 06/2013 | Ukraine
+              </p>
             </li>
             <li class="education-container">
-              <h4 class="work-experience-company">
+              <h4 class="work-experience-company" data-key="education-5">
                 Luganskiy Politehnichniy Kolleg<br />
-                <span class="company-name"
-                  >Spezialist für Hoteldienstleistungen</span
+                <span class="company-name" data-key="education-5-course"
+                  >Organisation von Dienstleistungen in Hotels</span
                 >
               </h4>
-              <p class="education-period">09/2003 – 06/2006 | Ukraine</p>
+              <p class="education-diplom" data-key="education-4-diplom">
+                Abschluss: Spezialist für Hoteldienstleistungen
+              </p>
+              <p class="education-period" data-key="education-5-period">
+                09/2003 – 06/2006 | Ukraine
+              </p>
             </li>
           </ul>
         </div>
@@ -226,80 +350,127 @@
 
       <!-- Sidebar -->
       <aside class="sidebar">
-        <div class="container">
+        <div class="container" data-key="sidebar-container">
           <img
             class="my-photo"
-            src="./img/IMG_7016.jpg"
+            src="./img/IMG_1241.jpg"
             alt="My photo"
             width="370"
+            data-key="sidebar-photo"
           />
-          <div class="sidebar-content">
+          <div class="sidebar-content" data-key="sidebar-content">
             <!-- Contacts -->
-            <div class="contacts-container">
-              <h3 class="contacts-title">Kontakt</h3>
-              <p class="contacts-item">
-                <a class="contacts-link" href="tel:+4915126123562"
+            <div class="contacts-container" data-key="contacts-container">
+              <h3 class="contacts-title" data-key="contacts-title">Kontakt</h3>
+              <p class="contacts-item" data-key="contacts-item-phone">
+                <i class="fas fa-phone"></i>
+                <a
+                  class="contacts-link"
+                  href="tel:+4915126123562"
+                  data-key="contacts-phone"
                   >+49 151 261 23 562</a
                 >
               </p>
-              <p class="contacts-item">
-                <a class="contacts-link" href="mailto:risinalilia2@gmail.com"
+              <p class="contacts-item" data-key="contacts-item-email">
+                <i class="fas fa-envelope"></i>
+                <a
+                  class="contacts-link"
+                  href="mailto:risinalilia2@gmail.com"
+                  data-key="contacts-email"
                   >risinalilia2@gmail.com</a
                 >
               </p>
-              <p class="contacts-address">
-                Johannesgasse 3<br />77833 Ottersweier
+              <p
+                class="contacts-item contacts-address"
+                data-key="contacts-address"
+              >
+                <i class="fas fa-map-marker-alt"></i>
+                Johannesgasse 3, <br />
+                77833 Ottersweier
               </p>
             </div>
 
             <!-- Skills -->
-            <div class="skills-container">
-              <h3 class="skills-title">Tech Skills</h3>
-              <ul class="skills-list">
-                <li class="skills-list-item">HTML</li>
-                <li class="skills-list-item">CSS</li>
-                <li class="skills-list-item">JavaScript</li>
-                <li class="skills-list-item">GitHub</li>
-                <li class="skills-list-item">React.js</li>
-                <li class="skills-list-item">Node.js</li>
+            <div class="skills-container" data-key="skills-container">
+              <h3 class="skills-title" data-key="skills-title">Tech Skills</h3>
+              <ul class="skills-list" data-key="skills-list">
+                <li class="skills-list-item" data-key="skills-html">HTML</li>
+                <li class="skills-list-item" data-key="skills-css">CSS</li>
+                <li class="skills-list-item" data-key="skills-js">
+                  JavaScript
+                </li>
+                <li class="skills-list-item" data-key="skills-github">
+                  GitHub
+                </li>
+                <li class="skills-list-item" data-key="skills-react">
+                  React.js
+                </li>
+                <li class="skills-list-item" data-key="skills-node">Node.js</li>
               </ul>
             </div>
 
             <!-- Soft Skills -->
-            <div class="soft-skills-container">
-              <h3 class="soft-skills-title">Soft Skills</h3>
-              <ul class="soft-skills-list">
-                <li class="soft-skills-list-item">Scrum</li>
-                <li class="soft-skills-list-item">Agile</li>
-                <li class="soft-skills-list-item">Teamwork</li>
+            <div class="soft-skills-container" data-key="soft-skills-container">
+              <h3 class="soft-skills-title" data-key="soft-skills-title">
+                Soft Skills
+              </h3>
+              <ul class="soft-skills-list" data-key="soft-skills-list">
+                <li class="soft-skills-list-item" data-key="soft-skill-scrum">
+                  Scrum
+                </li>
+                <li class="soft-skills-list-item" data-key="soft-skill-agile">
+                  Agile
+                </li>
+                <li
+                  class="soft-skills-list-item"
+                  data-key="soft-skill-teamwork"
+                >
+                  Teamwork
+                </li>
               </ul>
             </div>
 
             <!-- Languages -->
-            <div class="speak-container">
-              <h3 class="speak-title">Sprachkenntnisse</h3>
-              <ul class="speak-list">
-                <li class="speak-list-item">Ukrainisch: Muttersprache</li>
-                <li class="speak-list-item">Russisch: Muttersprache</li>
-                <li class="speak-list-item">Englisch: Grundkenntnisse</li>
-                <li class="speak-list-item">Deutsch: Grundkenntnisse</li>
+            <div class="speak-container" data-key="speak-container">
+              <h3 class="speak-title" data-key="speak-title">
+                Sprachkenntnisse
+              </h3>
+              <ul class="speak-list" data-key="speak-list">
+                <li class="speak-list-item" data-key="speak-ukrainian">
+                  Ukrainisch: Muttersprache
+                </li>
+                <li class="speak-list-item" data-key="speak-russian">
+                  Russisch: Muttersprache
+                </li>
+                <li class="speak-list-item" data-key="speak-english">
+                  Englisch: Grundkenntnisse
+                </li>
+                <li class="speak-list-item" data-key="speak-german">
+                  Deutsch: Grundkenntnisse
+                </li>
               </ul>
             </div>
 
             <!-- More -->
-            <div class="more-container">
-              <h3 class="more-title">Weitere</h3>
-              <ul class="more-list">
-                <li class="more-list-item">Führerschein Klasse B</li>
+            <div class="more-container" data-key="more-container">
+              <h3 class="more-title" data-key="more-title">Weitere</h3>
+              <ul class="more-list" data-key="more-list">
+                <li class="more-list-item" data-key="more-license">
+                  Führerschein Klasse B
+                </li>
               </ul>
             </div>
 
             <!-- Interests -->
-            <div class="interests-container">
-              <h3 class="interests-title">Interessen & Hobbys</h3>
-              <ul class="interests-list">
-                <li class="interests-list-item">Yoga</li>
-                <li class="interests-list-item">
+            <div class="interests-container" data-key="interests-container">
+              <h3 class="interests-title" data-key="interests-title">
+                Interessen & Hobbys
+              </h3>
+              <ul class="interests-list" data-key="interests-list">
+                <li class="interests-list-item" data-key="interests-yoga">
+                  Yoga
+                </li>
+                <li class="interests-list-item" data-key="interests-books">
                   Bücher zum Thema Psychologie
                 </li>
               </ul>

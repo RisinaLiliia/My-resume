@@ -1,280 +1,304 @@
-/* Определение цветовой палитры и переменных */
-:root {
-  --primary-color: #003366; /* Темно-синий */
-  --secondary-color: #8b4513; /* Коричневый */
-  --text-color: #333; /* Основной цвет текста */
-  --bg-light-color: #f4f1f1; /* Светлый фон */
-  --bg-dark-color: #003366; /* Темный фон */
-  --accent-color: #00509e; /* Акцентный цвет */
-  --border-color: #d2b48c; /* Цвет границы (коричневый) */
-  --main-padding: 40px; /* Основной отступ */
-  --main-font-size: 1rem; /* Основной размер шрифта */
-}
-
 /* Основные стили */
 body {
-  background-color: var(--bg-light-color);
-  padding: var(--main-padding);
-  font-family: 'Montserrat', sans-serif;
-  color: var(--text-color);
-  font-size: var(--main-font-size);
+  background-color: #f9f9f9;
+  font-family: "Lato", sans-serif;
+  color: #4a4a4a;
+  font-size: 16px;
   line-height: 1.6;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+p,
 ul,
 ol {
   margin: 0;
   padding: 0;
+}
+
+ul,
+ol {
   list-style: none;
 }
 
 .wrapper {
-  background-color: #ffffff;
   display: flex;
   flex-direction: row-reverse;
   width: 1200px;
   margin: 0 auto;
-  padding: var(--main-padding);
+  padding: 40px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
   box-sizing: border-box;
 }
 
 /* Основное содержимое */
 .main-content {
-  padding: 0 16px;
+  padding: 20px;
   margin: 0;
-  background-color: #ffffff;
 }
 
 .my-info {
-  padding: var(--main-padding);
-  margin-bottom: 16px;
-  background-color: var(--bg-light-color);
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
+  padding: 0 40px;
 }
 
-/* Sidebar */
-.sidebar {
-  background-color: var(--bg-dark-color);
-  padding: var(--main-padding);
-  width: 370px;
-  box-sizing: border-box;
-  border-radius: 10px;
-}
-
-.sidebar-content {
-  padding: var(--main-padding);
-  box-sizing: border-box;
-}
-
-.my-photo {
-  width: 290px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  border: 2px solid var(--border-color);
-}
-
-/* Контакты */
-.contacts-title {
-  font-weight: 700;
-  font-size: 16px;
-  color: #ffffff;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-}
-
-.contacts-item {
-  font-size: 14px;
-  color: #ffffff;
-  margin: 0;
-}
-
-.contacts-address {
-  margin: 0;
-}
-
-.contacts-link {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 400;
-}
-
-.contacts-link:hover,
-.contacts-link:focus {
-  color: var(--accent-color);
-}
-
-.contacts-container {
-  color: #ffffff;
-}
-
-/* Навыки */
-.skills-title,
-.soft-skills-title,
-.speak-title,
-.more-title,
-.interests-title {
-  font-weight: 700;
-  font-size: 16px;
-  color: #ffffff;
-  margin-bottom: 20px;
-  margin-top: 40px;
-  text-transform: uppercase;
-}
-
-.skills-list-item,
-.soft-skills-list-item,
-.speak-list-item,
-.more-list-item,
-.interests-list-item {
-  font-weight: 400;
-  font-size: 14px;
-  color: #ffffff;
-}
-
-/* Основное содержание */
 .my-profession {
-  font-weight: 700;
-  font-size: 14px;
-  color: var(--text-color);
-  margin-bottom: 8px;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #9e8748;
+  padding-top: 20px;
 }
 
 .my-name {
-  font-weight: 700;
+  font-family: "Bebas Neue", sans-serif;
   font-size: 45px;
-  color: var(--text-color);
-  margin-bottom: 12px;
+  font-weight: 400;
+  color: #4a4a4a;
+  margin-bottom: 10px;
 }
 
 .my-date {
-  font-weight: 400;
   font-size: 12px;
+  font-weight: 400;
   color: #a8a8a8;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .my-descr {
-  font-weight: 400;
   font-size: 14px;
-  color: #595959;
+  font-weight: 400;
+  color: #4a4a4a;
+  font-size: 14px;
 }
 
 /* Проекты */
 .my-projects-title {
-  font-weight: 700;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #a8a8a8;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  color: #9e8748;
   font-size: 16px;
-  color: var(--secondary-color);
-  margin: 20px 0;
 }
 
 .my-projects-item {
-  font-weight: 700;
   font-size: 14px;
-  color: var(--text-color);
+  font-weight: 700;
+  color: #4a4a4a;
 }
 
 .my-projects-item-link {
-  color: var(--primary-color);
+  color: #2c3e50;
   text-decoration: none;
   font-weight: 400;
 }
 
 .my-projects-item-link:hover,
 .my-projects-item-link:focus {
-  color: var(--accent-color);
+  color: #9e8748;
 }
 
 .my-projects-item-tech {
-  font-weight: 400;
   font-size: 14px;
-  color: #595959;
+  font-weight: 400;
+  color: #4a4a4a;
+}
+
+.nav {
+  display: flex;
+  justify-content: right; /* Размещает элементы по краям контейнера */
+  align-items: center; /* Центрирует элементы по вертикали */
+  padding: 10px;
+  gap: 20px;
+}
+
+.export-resume {
+  margin-bottom: 8px;
+  padding: 10px;
+  background-color: #9e8748; /* Цвет фона */
+  border-radius: 50%; /* Сделал кнопку круговой */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Мягкая тень */
+  border: none; /* Без границы */
+  color: #f9f9f9; /* Белый цвет иконки */
+  font-size: 16px; /* Размер иконки */
+  width: 40px; /* Ширина кнопки */
+  height: 40px; /* Высота кнопки */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s; /* Плавный переход для эффекта наведения */
+}
+
+.export-resume:focus,
+.export-resume:hover {
+  background-color: #2c3e50; /* Темный фон при наведении */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Сильнее тень при наведении */
+}
+
+/* Стили для контейнера выбора языка */
+
+.language-link {
+  color: #9e8748;
+  text-decoration: none;
+  margin: 0 5px;
+  font-weight: normal;
+}
+
+.language-link.active {
+  font-style: bold;
+  font-weight: 700;
 }
 
 /* Опыт работы */
 .work {
-  padding: 20px var(--main-padding);
-  margin-bottom: 16px;
-  background-color: var(--bg-light-color);
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
+  padding: 20px 40px;
+  background-color: #f9f9f9;
 }
 
-.work-experience-title {
-  font-weight: 700;
+.work-experience-title,
+.education-title,
+.skills-title,
+.soft-skills-title,
+.speak-title,
+.more-title,
+.interests-title,
+.contacts-title {
+  font-family: "Bebas Neue", sans-serif;
   font-size: 16px;
-  color: var(--secondary-color);
+  font-weight: 400;
+  color: #9e8748;
   margin-bottom: 20px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #a8a8a8;
 }
 
 .work-experience-company {
-  font-weight: 700;
+  font-family: "Lato", sans-serif;
   font-size: 16px;
-  color: var(--text-color);
+  font-weight: 700;
+  color: #4a4a4a;
 }
 
 .work-experience-container {
   margin-bottom: 10px;
   padding-bottom: 10px;
-  border-bottom: 1px solid var(--border-color);
 }
 
 .company-name {
-  color: var(--primary-color);
+  color: #2c3e50;
 }
 
-.work-experience-period {
-  font-weight: 400;
+.work-experience-period,
+.education-period {
   font-size: 14px;
-  color: #888;
+  font-weight: 400;
+  color: #a8a8a8;
   margin-bottom: 10px;
 }
 
 .work-experience-duties-list {
   padding-left: 20px;
-  padding-bottom: 10px;
 }
 
-.work-experience-duties-item {
-  font-weight: 400;
+.work-experience-duties-item,
+.skills-list-item,
+.soft-skills-list-item,
+.speak-list-item,
+.more-list-item,
+.interests-list-item {
+  font-family: "Lato", sans-serif;
   font-size: 14px;
+  font-weight: 400;
   color: #595959;
 }
 
 /* Образование */
 .education {
-  padding: 20px var(--main-padding);
-  margin: 0;
-  background-color: var(--bg-light-color);
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
-}
-
-.education-title {
-  font-weight: 700;
-  font-size: 16px;
-  color: var(--secondary-color);
-  margin-bottom: 20px;
+  padding: 0 40px;
 }
 
 .education-container {
   margin-bottom: 10px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.education-container h4 {
-  font-weight: 700;
-  font-size: 16px;
-  color: var(--text-color);
-}
-
-.education-period {
-  font-weight: 400;
   font-size: 14px;
-  color: #888;
+  padding-bottom: 10px;
+}
+
+/* Sidebar */
+.sidebar {
+  background-color: #2c3e50;
+  padding: 40px;
+  width: 370px;
+  box-sizing: border-box;
+  color: #a8a8a8;
+  font-size: 14px;
+  font-family: "Lato", sans-serif;
+}
+
+.sidebar-content {
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.sidebar-content,
+.skills-container,
+.soft-skills-container,
+.speak-container,
+.interests-container,
+.more-container {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.my-photo {
+  width: 290px;
+  border-radius: 50%;
+}
+
+.contacts-container {
+  padding: 20px 0;
+}
+
+.contacts-item i,
+.contacts-address i {
+  margin-right: 8px;
+  color: #9e8748;
+}
+
+.contacts-item,
+.contacts-address {
+  margin: 0;
+}
+
+.contacts-address {
+  padding-left: 24px; /* Задайте нужное значение */
+  text-indent: -12px; /* Отрицательное значение для выравнивания первой строки */
+}
+
+.contacts-link {
+  color: #a8a8a8;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.contacts-link:hover,
+.contacts-link:focus {
+  color: #9e8748;
+}
+
+/* Навыки */
+.skills-list-item,
+.soft-skills-list-item,
+.speak-list-item,
+.more-list-item,
+.interests-list-item {
+  color: #a8a8a8;
 }
 
 /* Мобильные стили */
@@ -301,6 +325,7 @@ ol {
     padding: 10px;
   }
 }
+
 @media screen and (max-width: 600px) {
   body {
     padding: 0;
@@ -335,5 +360,47 @@ ol {
 
   .my-photo {
     width: 100%;
+  }
+}
+@media print {
+  /* Установка размера страницы A4 */
+  @page {
+    size: A4;
+    margin: 10mm; /* Узкие поля страницы. Вы можете уменьшить это значение при необходимости */
+  }
+
+  /* Сброс отступов и полей по умолчанию */
+  body,
+  html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Настройки для основного контейнера */
+  .print-container {
+    width: 100%;
+    height: auto; /* Автоматическая высота контейнера */
+    padding: 0; /* Убираем паддинг, если есть */
+    box-sizing: border-box; /* Включает паддинг и бордер в общую ширину и высоту */
+  }
+
+  /* Убираем ненужные элементы при печати */
+  .no-print {
+    display: none;
+  }
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 10mm; /* Установите нужное значение для полей */
+  }
+
+  body,
+  html {
+    margin: 0;
+    padding: 0;
   }
 }
